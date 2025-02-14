@@ -1,6 +1,9 @@
 import { MongoClient } from 'mongodb'
+import dotenv from 'dotenv'
 
-const URI = 'mongodb+srv://limadayvison:waD2TcSxCG4ZT2Hr@cluster0.hkxbj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+dotenv.config()
+
+const URI = process.env.MONGODB_URI
 
 const client = new MongoClient(URI)
 
