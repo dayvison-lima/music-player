@@ -37,7 +37,7 @@ const Player = ({ duration, randomIdFromArtist, randomId2FromArtist, audio }) =>
         const intervalId = setInterval(() => {
            if (isPlaying) setCurrentTime(formatTime(audioPlayer.current.currentTime))
 
-            progressBar.current.style.setProperty('--_progress', (audioPlayer.current.currentTime / durationInSeconds) * 100 + '%')
+            progressBar.current.style.setProperty('--_progress', (audioPlayer.current.currentTime / durationInSeconds) * 1000 + '%')
 
         }, 1000)
     
