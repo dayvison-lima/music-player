@@ -14,10 +14,10 @@ const Player = ({ duration, randomIdFromArtist, randomId2FromArtist, audio }) =>
 
     const timeInSeconds = (timeString) => {
         const splitArray = timeString.split(':')
-        const minutes = splitArray[0]
-        const seconds = splitArray[0]
-
-        return seconds + minutes * 60
+        const minutes = parseInt(splitArray[0], 10)
+        const seconds = parseInt(splitArray[1], 10)
+    
+        return minutes * 60 + seconds
     }
 
     const audioPlayer = useRef()
@@ -37,7 +37,7 @@ const Player = ({ duration, randomIdFromArtist, randomId2FromArtist, audio }) =>
         const intervalId = setInterval(() => {
            if (isPlaying) setCurrentTime(formatTime(audioPlayer.current.currentTime))
 
-            progressBar.current.style.setProperty('--_progress', (audioPlayer.current.currentTime / durationInSeconds) * 1000 + '%')
+            progressBar.current.style.setProperty('--_progress', (audioPlayer.current.currentTime / durationInSeconds) * 100 + '%')
 
         }, 1000)
     
